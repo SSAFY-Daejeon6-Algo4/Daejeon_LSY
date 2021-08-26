@@ -20,11 +20,11 @@ public class Sw6730 {
 			int[] huddle = new int[N];
 			huddle = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
-			for (int i = 1; i < N; i++) {
-				if (huddle[i] > huddle[i - 1]) {
-					up = Math.max(huddle[i] - huddle[i - 1], up);
-				} else {
-					down = Math.max(huddle[i - 1] - huddle[i], down);
+			for (int i = 1; i < N; i++) {	// 첫 허들은 검사할 필요가 없으므로 다음 허들 부터 시작
+				if (huddle[i] > huddle[i - 1]) {	// 이전 허들보다 현재 허들이 높으면
+					up = Math.max(huddle[i] - huddle[i - 1], up);	// 높이뛰기 난이도를 최신화
+				} else {							// 이전 허들이 현재 허들보다 높으면
+					down = Math.max(huddle[i - 1] - huddle[i], down);	// 뛰어내리기 난이도를 최신화
 				}
 			}
 
